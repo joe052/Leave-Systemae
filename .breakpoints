@@ -1,0 +1,44 @@
+{
+  "files": {
+    ".breakpoints": [
+      {
+        "id": "08eccce5-45b7-4832-b0bd-8fc9f153beb6",
+        "line": 7,
+        "version": 47,
+        "index": 126
+      }
+    ],
+    "Some-resources/mydatabase": [
+      {
+        "id": "523d1fe0-78ae-4f26-a44f-4d98c66d8056",
+        "line": 4,
+        "version": 148,
+        "index": 273
+      }
+    ],
+    "index.js": [
+      {
+        "id": "c7d9e281-3a23-4465-b81d-7f01c6beeed9",
+        "line": 1,
+        "version": 2054,
+        "index": 0
+      }
+    ],
+    "public/index.html": [
+      {
+        "id": "fee0c69f-e337-4765-8eef-017c7a13d4a8",
+        "line": 24,
+        "version": 637,
+        "index": 802
+      }
+    ],
+    "sub-project/server.js": [
+      {
+        "id": "9ed8c08d-b7c2-4a28-9209-b99e4e442b87",
+        "line": 50,
+        "version": 1592,
+        "index": 1300
+      }
+    ]
+  }
+}

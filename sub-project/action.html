@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data</title>
+</head>
+<body>
+  <h6>Enter id to delete employee.. 
+    <form action="/delete" method="POST">
+     <input type="text" id="idVal" name="id"></input>
+     <input type="submit">
+    </form>
+  </h6> 
+
+<script>
+ async function discard(){
+   let id = document.getElementById("idVal").value;
+   const options = {method: 'POST', headers: {
+      'Content-Type': 'application/json'
+      },body: JSON.stringify(id)};
+   const response = await fetch(id,options);
+   const sentVal = await response.json();
+   console.log(sentVal);
+ }
+ function check(){
+   let id = document.getElementById("idVal").value;
+   document.write(id);
+   console.log("The value is: "+ id);
+ }
+</script>
+</body>
+</html>

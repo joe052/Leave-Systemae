@@ -1,0 +1,127 @@
+/*let http = require("http");
+let fs = require("fs");
+
+let handleRequest = (request,response)=>{
+response.writeHead(200, {
+        'Content-Type': 'text/html'
+    });
+
+fs.readFile('./index.html',null,function (error,data){
+  if(error){
+    response.writeHead(404);
+    response.write("Sorry! file not found!");
+  }else{
+    response.write(data);
+  }
+  response.end();
+});
+};
+
+http.createServer(handleRequest).listen(8000);*/
+
+const express = require('express');
+let fs = require('fs');
+var async = require('async');
+
+const app = express();
+const port = 8000;
+
+app.get('/', (req, res) => {
+  //res.send('Hello Express app!')
+  res.writeHead(200, {
+        'Content-Type': 'text/html',
+        //'Content-Type': 'text/css'
+    });
+
+ async.eachSeries(
+      ['./index.html','./style.css'], function (filename,cb){
+  fs.readFile('./index.html',null,function (error,data){
+  if(error){
+    res.writeHead(404);
+    res.write("Sorry! file not found!");
+    cb(error);
+  }else{
+    res.write(data);
+  }
+  //res.end();
+ });
+   },  function(err) {
+      res.end()
+    }
+    );
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
+
+/*function css(response) {
+  response.writeHead(200, {"Content-Type": "text/css"});
+
+  async.eachSeries(
+    // Pass items to iterate over
+    ['css/bootstrap.css', 'css/bootstrap-responsive.css'],
+    // Pass iterator function that is called for each item
+    function(filename, cb) {
+      fs.readFile(filename, function(err, content) {
+        if (!err) {
+          response.write(content);
+        }
+
+        // Calling cb makes it go to the next item.
+        cb(err);
+      });
+    },
+    // Final callback after each item has been iterated over.
+    function(err) {
+      response.end()
+    }
+  );
+}*/
+
+
+
+
+const express = require('express');
+let fs = require('fs');
+//var async = require('async');
+
+const app = express();
+const port = 8000;
+
+//the two lines below are very important
+app.use(express.static('./public'));
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+  //res.send('Hello Express app!')
+  res.writeHead(200, {
+        "Content-Type": "text/css",
+        //"Content-Type": "text/html"
+    });
+
+ var count = 0;
+
+ var handler = function(error,content){
+   count++;
+   if(error){
+    res.writeHead(404);
+    res.write("Sorry! file not found!");
+    console.log(error);
+  }else{
+    res.write(content);
+  }
+  if (count == 2){
+    res.end();
+  }
+ }
+
+  //fs.readFile('./index.html', handler);
+  fs.readFile('./style.css', handler);
+  fs.readFile('./index.html', handler);
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data display</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+</head>
+<body>
+<canvas id="chart" width="400" height="400"></canvas>
+
+<script>
+const xlabels = [];
+const ytemps = [];
+chartIt();
+async function chartIt(){
+
+await blowData().catch(err => {
+  console.error(err);
+});
+
+const ctx = document.getElementById('chart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xlabels,
+        datasets: [{
+            label: 'Global Average Temperatures',
+            data: ytemps,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
+            borderWidth: 1
+        }]
+    },
+});
+}
+
+//data from https://data.giss.nasa.gov/gistemp/
+
+async function blowData(){
+  //const response = await fetch('test.csv');
+  const response = await fetch('ZonAnn.Ts+dSST.csv');
+  const data = await response.text();
+  //console.log(data);
+  const table = data.split('\n').slice(1);
+  console.log(table); 
+
+  table.forEach(elt => {
+    const columns = elt.split(',');
+    const year = columns[0];
+    xlabels.push(year);
+    const temp = columns[1];
+    // to view deviations from the mean(14 degrees celcius)
+    ytemps.push(temp);
+
+    //to view actual temperatures in degrees celcius
+    //ytemps.push(parseFloat(temp) + 14);
+
+     console.log(year, temp); 
+
+  });
+}
+
+</script>
+
+</body>
+</html>

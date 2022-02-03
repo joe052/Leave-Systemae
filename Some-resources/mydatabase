@@ -1,0 +1,20 @@
+//https://make.powerapps.com/environments/783c38ff-a0d7-420f-9e6a-2c2c231453f2/home?offer=dev
+//https://powerapps.microsoft.com/en-us/developerplan/
+//Server: pragmaticworks.database.windows.netDatabase: DemoUserName: DemoUserPassword: DemoPW123 (yes, it's case sensitive)
+//pvauser1@m365x833945.onmicrosoft.com password: test@word1
+
+Host: sql5.freesqldatabase.com
+Database name: sql5460913
+Database user: sql5460913
+Database password: qsMT6ahEix
+Port number: 3306
+
+login credentials for remotemysql
+email: joekaranjasenior52@gmail.com
+pass: joskar52
+host: "remotemysql.com",
+user: "blUqVPKNsO",
+password: "jaoG4anq0g",
+database:"blUqVPKNsO"
+
+username: joe052@08m2x.onmicrosoft.com

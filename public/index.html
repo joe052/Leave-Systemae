@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index File</title>
+</head>
+<body style="background-color: maroon; color: white;">
+  <h1 style="color: white;">Welcome to the server!!</h1>
+
+<p>latitude: <span id="latitude"></span>&deg;<br></p>
+<p>longitude: <span id="longitude"></span>&deg;<br></p>
+<a href="all.html">clickme</a>
+
+  <script>
+    if('geolocation' in navigator) {
+    console.log('geolocation available');
+    navigator.geolocation.getCurrentPosition(async(position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      document.getElementById('latitude').textContent = lat;
+      document.getElementById('longitude').textContent = lon;
+    //console.log(position,coords,latitude);
+    //console.log(position,coords,longitude);
+    console.log(position); 
+
+    const data = {lat,lon};
+    const options = {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(data)
+    }
+    
+    const response = await fetch('/api',options);
+    const feed = await response.json();
+    console.log(feed);
+});
+} else {
+  console.log('geolocation not available');
+}
+  </script>
+</body>
+</html>

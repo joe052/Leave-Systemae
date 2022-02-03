@@ -1,0 +1,30 @@
+{
+  "name": "leave-systemae",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@moebius/http-graceful-shutdown": "^1.1.0",
+    "@replit/database": "^2.0.1",
+    "async": "^3.2.2",
+    "body-parser": "^1.19.1",
+    "chart.js": "^3.6.2",
+    "dom": "0.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "jsdom": "^18.1.1",
+    "mysql": "^2.18.1",
+    "nedb": "^1.8.0",
+    "node-fetch": "^3.1.0",
+    "project-one": "0.0.0",
+    "puppeteer": "^11.0.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {},
+  "description": ""
+}

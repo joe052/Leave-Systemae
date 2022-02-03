@@ -1,0 +1,29 @@
+* {
+  background-color: darkcyan;
+  
+ }
+h1 {
+  text-align: center;
+  color: maroon;
+  font-family: Verdana;
+  font-size: 25px;
+}
+p {
+  font-family: Cambria;
+}
+form {
+  font-family: "Courier New", Courier, monospace;
+  color: cyan;
+  font-size: 18px;
+  font-style: bold;
+}
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
