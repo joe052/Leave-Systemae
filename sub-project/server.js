@@ -31,7 +31,7 @@ app.use(express.static('sub-project'));
 app.use(express.json({limit: '1mb'}));
 
 app.listen(port,()=>{
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`App here listening at http://localhost:${port}`);
 });
 
 app.post('/deliver',(request,response)=>{

@@ -6,6 +6,6 @@
 //import fetch from 'node-fetch';
 //globalThis.fetch = fetch;
 
-const dbee1 = require('./sub-project/server2.js');
+const dbee1 = require('./sub-project/server.js');
 //const dbee2 = require('./public/server.js');
 //const dbee3 = require('./project/server.js');
